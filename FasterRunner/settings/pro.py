@@ -20,6 +20,7 @@ if find_dotenv():
     DB_USER = environ.get('FASTER_DB_USERNAME')
     DB_PASSWORD = environ.get('FASTER_DB_PASSWORD')
     PLATFORM_NAME = environ.get('PLATFORM_NAME')
+    FASTER_MQ_HOST = environ.get('FASTER_MQ_HOST')
     if PLATFORM_NAME:
         IM_REPORT_SETTING.update({'platform_name': PLATFORM_NAME})
 
@@ -38,7 +39,7 @@ DATABASES = {
     }
 }
 
-BROKER_URL = f'amqp://{MQ_USER}:{MQ_PASSWORD}@{FASTER_HOST}:5672//'
+BROKER_URL = f'amqp://{MQ_USER}:{MQ_PASSWORD}@{FASTER_MQ_HOST}:5672//'
 
 # 用来直接url访问
 #STATIC_URL = '/static/'
